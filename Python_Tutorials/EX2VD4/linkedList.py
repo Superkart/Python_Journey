@@ -11,7 +11,7 @@ class LinkedList:
         node = Node(data, self.head)
         self.head = node
 
-    def printLinkedList(self):
+    def print_LinkedList(self):
         if self.head is None:
             print("Linked list is empty")
             return  
@@ -34,14 +34,17 @@ class LinkedList:
             itr = itr.next
         
         itr.next = Node(data, None)
-        
+
+    def insert_By_Values(self, data_list):
+        self.head = None
+        for data in data_list:
+            self.insert_At_End(data)
+            
+
 
     
 
 if __name__ == '__main__':
     ll = LinkedList()
-    ll.insert_At_End(5)
-    ll.insert_At_End(89)
-    ll.insert_At_End(79)
-    ll.insert_At_Begining(0)
-    ll.printLinkedList()
+    ll.insert_By_Values(["Ragi Janardhan", "Ragi Vinay Kumar", "Ragi Karthik"])
+    ll.print_LinkedList()
