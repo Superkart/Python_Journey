@@ -40,7 +40,13 @@ class LinkedList:
         for data in data_list:
             self.insert_At_End(data)
             
-
+    def get_Length(self):
+        count = 0
+        itr = self.head
+        while itr:
+            count = count + 1
+            itr = itr.next
+        print(count)
 
     
 
@@ -48,3 +54,4 @@ if __name__ == '__main__':
     ll = LinkedList()
     ll.insert_By_Values(["Ragi Janardhan", "Ragi Vinay Kumar", "Ragi Karthik"])
     ll.print_LinkedList()
+    ll.get_Length()
