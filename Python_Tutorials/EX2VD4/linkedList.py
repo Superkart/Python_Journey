@@ -7,6 +7,31 @@ class LinkedList:
     def __init__(self):
         self.head = None
 
+# region Utility Methods
+    def get_Length(self):
+        count = 0
+        itr = self.head
+        while itr:
+            count = count + 1
+            itr = itr.next
+        print(count)
+        return count
+    
+    def print_LinkedList(self):
+        if self.head is None:
+            print("Linked list is empty")
+            return  
+        
+        itr = self.head
+        llstr = ''
+
+        while itr:
+            llstr = llstr + str(itr.data) + '--->'
+            itr = itr.next
+
+        print(llstr)
+# endregion
+
 # region Insert Methods
     def insert_At_Begining(self, data):
         node = Node(data, self.head)
@@ -26,18 +51,24 @@ class LinkedList:
         self.head = None 
         for data in data_list:
             self.insert_At_End(data)
-# endregion
 
-
-    def get_Length(self):
+    def insert_At_Index(self, index, data):
+        if(index < 0 or index >= self.get_Length()): # CASE WHEN INDEX LIES OUTSIDE THE LINKEDLIST
+            raise Exception("Index is invalid")
+        
+        if(index == 0):
+            self.insert_At_Begining(data)
         count = 0
         itr = self.head
         while itr:
-            count = count + 1
+            if(count == index - 1):
+                node = Node(data, itr.next)
+                itr.next = node
+                break
             itr = itr.next
-        print(count)
-        return count
-
+            count = count + 1
+# endregion
+    
     def remove_Node(self, index):
         if(index < 0 or index >= self.get_Length()): # CASE WHEN INDEX IS NOT IN THE LINKEDLIST
             raise Exception("Invalid index")
@@ -54,25 +85,11 @@ class LinkedList:
 
             itr = itr.next
             count = count + 1
-    
-    def print_LinkedList(self):
-        if self.head is None:
-            print("Linked list is empty")
-            return  
-        
-        itr = self.head
-        llstr = ''
-
-        while itr:
-            llstr = llstr + str(itr.data) + '--->'
-            itr = itr.next
-
-        print(llstr)
-
 
 if __name__ == '__main__':
     ll = LinkedList()
     ll.insert_By_Values(["Ragi Janardhan", "Ragi Vinay Kumar", "Ragi Karthik"])
     ll.remove_Node(0)
+    ll.insert_At_Index(0, "Ragi Madhavi")
     ll.print_LinkedList()
     ll.get_Length()
