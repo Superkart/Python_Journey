@@ -7,23 +7,10 @@ class LinkedList:
     def __init__(self):
         self.head = None
 
+# region Insert Methods
     def insert_At_Begining(self, data):
         node = Node(data, self.head)
         self.head = node
-
-    def print_LinkedList(self):
-        if self.head is None:
-            print("Linked list is empty")
-            return  
-        
-        itr = self.head
-        llstr = ''
-
-        while itr:
-            llstr = llstr + str(itr.data) + '--->'
-            itr = itr.next
-
-        print(llstr)
     
     def insert_At_End(self, data):
         if self.head is None: # CASE WHEN THE LINKED LIST IS EMPTY
@@ -39,7 +26,9 @@ class LinkedList:
         self.head = None 
         for data in data_list:
             self.insert_At_End(data)
-            
+# endregion
+
+
     def get_Length(self):
         count = 0
         itr = self.head
@@ -65,7 +54,20 @@ class LinkedList:
 
             itr = itr.next
             count = count + 1
-             
+    
+    def print_LinkedList(self):
+        if self.head is None:
+            print("Linked list is empty")
+            return  
+        
+        itr = self.head
+        llstr = ''
+
+        while itr:
+            llstr = llstr + str(itr.data) + '--->'
+            itr = itr.next
+
+        print(llstr)
 
 
 if __name__ == '__main__':
