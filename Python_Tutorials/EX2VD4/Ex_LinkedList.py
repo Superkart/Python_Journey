@@ -114,3 +114,18 @@ if __name__ == '__main__':
     ll.insert_After_Value("Ragi Karthik", "After Karthik")
     ll.remove_By_Value("Ragi Karthik")
     ll.printLinkedList()    
+
+    ll1 = LinkedList()
+    ll1.insert_By_Values(["banana","mango","grapes","orange"])
+    ll1.printLinkedList()
+    #ll.insert_After_Value("mango","apple") # insert apple after mango
+    ll1.printLinkedList()
+    ll1.remove_By_Value("orange") # remove orange from linked list
+    ll1.printLinkedList()
+    #ll1.remove_By_Value("figs")
+    ll1.printLinkedList()
+    ll1.remove_By_Value("banana")
+    #ll1.remove_By_Value("mango")
+    #ll1.remove_By_Value("apple")
+    ll1.remove_By_Value("grapes")
+    ll1.printLinkedList()
