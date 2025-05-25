@@ -13,7 +13,15 @@ class LinkedList:
     def insert_At_Begining(self, data):
         node = Node(data, self.head)
         self.head = node
-        
+
+    def get_Length(self):
+        count = 0
+        itr = self.head
+        while itr:
+            count = count + 1
+            itr = itr.next
+        print(count)
+        return count             
 
     def printLinkedList(self):
         if self.head == None:
@@ -65,11 +73,6 @@ class LinkedList:
     
 
 
-
-
-
-
-
     def remove_Node(self, index):
         if(index < 0 or index >= self.get_Length()): # CASE WHEN INDEX IS NOT IN THE LINKEDLIST
             raise Exception("Invalid index")
@@ -87,11 +90,27 @@ class LinkedList:
             itr = itr.next
             count = count + 1
 
+    def remove_By_Value(self, data):
+        
+        if(self.head == None):
+            raise Exception("Linkedlist doesnt exist")
+        
+        itr = self.head
+        
+        count = 0
+        while itr:
+            if(itr.data == data):
+                self.remove_Node(count)
+                return
+            itr = itr.next
+            count = count + 1
 
+        raise Exception("Value not found")
 
 
 if __name__ == '__main__':
     ll = LinkedList()
     ll.insert_By_Values(["Ragi Janardhan", "Ragi Vinay Kumar", "Ragi Karthik"])
     ll.insert_After_Value("Ragi Karthik", "After Karthik")
+    ll.remove_By_Value("Ragi Karthik")
     ll.printLinkedList()    
