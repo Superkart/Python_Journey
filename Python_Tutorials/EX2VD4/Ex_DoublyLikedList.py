@@ -9,10 +9,14 @@ class DoublyLinkedList:
 
     def __init__(self):
         self.head = None 
+        self.end = None
 
     def insert_At_Begining(self, data):
-        node = Node(data, None, self.head)
-        if(self.head):
+        node = Node(data, None, None)
+        if(not self.head): # CASE WHERE LINKED LIST IS EMPTY
+            self.head = node
+        else: # CASE WHERE LINKED LIST HAS ELEMENTS
+            node.next = self.head
             self.head = node
 
     def getLength(self):
@@ -25,6 +29,8 @@ class DoublyLinkedList:
         return count
 
     def print_LinkedList_Forward(self):
+        if(self.head == None):
+            raise Exception("Linked list does not exist")
         llstr = ""
         itr = self.head
         while itr:
@@ -33,6 +39,9 @@ class DoublyLinkedList:
         print(llstr)
 
     def print_LinkedList_Backward(self):
+        if(self.head == None):
+            raise Exception("Linked list does not exist")
+
         llstr = ""
         itr = self.head
         lastnode = None
@@ -46,3 +55,12 @@ class DoublyLinkedList:
 
         print(llstr)        
 
+
+
+if __name__ == "__main__":
+    Dll = DoublyLinkedList()
+    Dll.insert_At_Begining("Ragi Janardhan")
+    Dll.print_LinkedList_Forward()
+    Dll.insert_At_Begining("Ragi Vinay Kumar")
+
+    Dll.print_LinkedList_Forward()
