@@ -24,4 +24,25 @@ class DoublyLinkedList:
         print(count)
         return count
 
-    def insert_At_End(self, data, )
+    def print_LinkedList_Forward(self):
+        llstr = ""
+        itr = self.head
+        while itr:
+            llstr = llstr + str(itr.data) + "--->"
+            itr = itr.next
+        print(llstr)
+
+    def print_LinkedList_Backward(self):
+        llstr = ""
+        itr = self.head
+        lastnode = None
+        while itr:
+            itr = itr.next
+        lastnode = itr
+        itr = lastnode
+        while itr:
+            llstr = llstr + str(itr.data) + "<---"
+            itr = itr.prev
+
+        print(llstr)        
+
