@@ -15,4 +15,13 @@ class DoublyLinkedList:
         if(self.head):
             self.head = node
 
+    def getLength(self):
+        count = 0
+        itr = self.head
+        while itr:
+            count = count + 1
+            itr = itr.next
+        print(count)
+        return count
+
     def insert_At_End(self, data, )
