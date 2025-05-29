@@ -67,13 +67,19 @@ class DoublyLinkedList:
             itr.next = node
             node.prev = itr
 
+    def insert_By_Values(self, data_list):
+        if not data_list:
+            raise Exception("Data list is invalid")
+        for data in data_list:
+            self.insert_At_End(data)
+             
 
 if __name__ == "__main__":
     Dll = DoublyLinkedList()
-    Dll.insert_At_Begining("Ragi Janardhan")
-    Dll.print_LinkedList_Forward()
-    Dll.insert_At_Begining("Ragi Vinay Kumar")
-    Dll.insert_At_End("Karthik Ragi")
+    Dll.insert_By_Values(["Karthik Ragi", "Ragi Vinay Kumar", "Ragi Janardhan"])
+    #Dll.insert_At_Begining("Ragi Janardhan")
+    #Dll.insert_At_Begining("Ragi Vinay Kumar")
+    #Dll.insert_At_End("Karthik Ragi")
     Dll.print_LinkedList_Forward()
     Dll.print_LinkedList_Backward()
     Dll.getLength()
