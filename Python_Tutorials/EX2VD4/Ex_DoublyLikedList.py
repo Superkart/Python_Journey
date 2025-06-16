@@ -79,7 +79,7 @@ class DoublyLinkedList:
         
         itr = self.head
 
-        while itr:
+        while itr:                        ###################### checking if the next value exists and if does you need to connect its prev too #####################
             if(itr.data == after_value):
                 node = Node(data, itr, itr.next)
                 if itr.next:
