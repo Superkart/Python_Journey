@@ -32,11 +32,13 @@ class HashTable:
     
     def __delitem__(self, key):
         h = self.get_Hash(key)
-        for keyValue in self.arr[h]:
-            if keyValue is None:
-                return
-            if keyValue is not None:
-                self.arr[h] = None
+        for index, keyValue in enumerate(self.arr[h]):
+            if(keyValue is not None and keyValue[0] == key):
+                del self.arr[h][index]
+
+
+                
+            
 
 
 if __name__ == '__main__':
@@ -48,5 +50,7 @@ if __name__ == '__main__':
 
     ht["march 17"] = 17
     ht["march 6"] = 6
+    print(ht.arr)
+    del ht["Madhavi Ragi"]
     print(ht.arr)
     print(ht["MadhaviRagi"])
