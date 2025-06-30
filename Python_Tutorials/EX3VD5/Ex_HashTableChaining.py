@@ -20,7 +20,7 @@ class HashTable:
                 self.arr[h][index] = (key, value)
                 found = True
                 break
-            #CASE 2 key is not there                   ################## needs to be outside the loop  #############
+            # CASE 2 key is not there                   ################## needs to be outside the loop  #############
         if not found:
             self.arr[h].append((key, value))
 
