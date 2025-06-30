@@ -9,4 +9,20 @@ csv_File_Path =  project_Root_Path / "nyc_weather.csv"
 
 df = pd.read_csv(csv_File_Path)
 
-print(df.head())
+temp_List = df["temperature(F)"].to_list()
+
+print(temp_List)
+
+""""
+sum = 0
+for temp in range(7):
+    sum = sum + temp_List[temp]
+
+week_Avg = sum/7
+"""
+
+# BETTER WAY TO DO IT
+
+week_Avg = sum(temp_List[0:7]) / len(temp_List[0:7]) 
+               
+print(week_Avg)
