@@ -30,3 +30,4 @@ print(week_Avg)
 sorted_Temp_List = sorted(temp_List, reverse=True)
 
 print(sorted_Temp_List[0])
+
